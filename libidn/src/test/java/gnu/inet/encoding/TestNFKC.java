@@ -26,12 +26,17 @@
    You should have received copies of the GNU General Public License and
    the GNU Lesser General Public License along with this program.  If
    not, see <http://www.gnu.org/licenses/>. */
+package gnu.inet.encoding;
 
 import gnu.inet.encoding.NFKC;
+import org.junit.Assert;
+import org.junit.Test;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.InputStreamReader;
+import java.net.URL;
 
 public class TestNFKC
 {
@@ -107,24 +112,13 @@ public class TestNFKC
     return out.toString();
   }
 
-  public static void main(String[] args)
+  @Test
+  public void testNFKC()
     throws Exception
   {
-    if (args.length > 0) {
-      System.out.println("Input: "+args[0]);     
-      System.out.println("Output: "+NFKC.normalizeNFKC(args[0]));
-    } else {
-      // Check if the normalization test file exists
-      File f = new File("NormalizationTest.txt");
-      if (!f.exists()) {
-	System.err.println("Unable to find NormalizationTest.txt.");
-	System.err.println("Please download the latest version of this file from:");
-	System.err.println("http://www.unicode.org/Public/UNIDATA/");
-	System.exit(1);
-      }
+      final URL url = new URL( "http://www.unicode.org/Public/UNIDATA/NormalizationTest.txt" );
+      BufferedReader r = new BufferedReader(new InputStreamReader( url.openStream() ));
 
-      BufferedReader r = new BufferedReader(new FileReader(f));
-      
       String line;
       while (null != (line = r.readLine())) {
 	line = stripComment(line);
@@ -151,21 +145,14 @@ public class TestNFKC
 	    String nc3 = NFKC.normalizeNFKC(c3);
 	    String nc4 = NFKC.normalizeNFKC(c4);
 	    String nc5 = NFKC.normalizeNFKC(c5);
-	    
-	    if (!nc1.equals(c4) || !nc2.equals(c4) || !nc3.equals(c4) || !nc4.equals(c4) || !nc5.equals(c4)) {
-	      System.out.println("Error at `"+line+"'");
-	      System.out.println("NFKC(c1) = "+toUnicode(nc1)+", should be "+toUnicode(c4));
-	      System.out.println("NFKC(c2) = "+toUnicode(nc2)+", should be "+toUnicode(c4));
-	      System.out.println("NFKC(c3) = "+toUnicode(nc3)+", should be "+toUnicode(c4));
-	      System.out.println("NFKC(c4) = "+toUnicode(nc4)+", should be "+toUnicode(c4));
-	      System.out.println("NFKC(c5) = "+toUnicode(nc5)+", should be "+toUnicode(c4));
-	      return;
-	    }
+
+        Assert.assertEquals("Failed line: " + line, nc1, c4);
+        Assert.assertEquals("Failed line: " + line, nc2, c4);
+        Assert.assertEquals("Failed line: " + line, nc3, c4);
+        Assert.assertEquals("Failed line: " + line, nc4, c4);
+        Assert.assertEquals("Failed line: " + line, nc5, c4);
 	  }
 	}
       }
-
-      System.out.println("No errors detected!");
     }
-  }
 }
