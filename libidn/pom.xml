@@ -20,6 +20,7 @@
 
     <properties>
     	<generated.sources.dir>${project.build.directory}/generated</generated.sources.dir>
+        <maven.deploy.skip>false</maven.deploy.skip>
     </properties>
 
 	<build>
