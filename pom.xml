@@ -44,8 +44,9 @@
   </licenses>
 
   <scm>
-    <connection>scm:git:git://git.savannah.gnu.org/libidn.git</connection>
-    <url>http://git.savannah.gnu.org/gitweb/?p=libidn.git</url>
+    <connection>scm:git:git://github.com/guusdk/libidn-java.git</connection>
+    <developerConnection>scm:git:ssh://github.com:guusdk/libidn-java.git</developerConnection>
+    <url>http://github.com/guusdk/libidn-java/tree/master</url>
   </scm>
 
   <organization>
