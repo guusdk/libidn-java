@@ -1,0 +1,16 @@
+language: java
+env:
+  global:
+   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   via the "travis encrypt" command using the project repo's public key
+   - secure: "GwRfEmSrMIFEAFFI+brOMF1wrjcoLXEwTxsb+JQ6x66RYOhTLcVFs1ZuK9tRpEOCsvt7tLX+h8QcIeBz2aGl+cYaxOuwvP33Zz8jlws5WL1MbgpQJqcTbAJdZndXmT9N8h5F+VCe9BeilmVI85hM9WKK0APAXppvwx17E2UI2uY+q0BHMZDWBdiCIPGfBdnF6jqLhBFlxVJpZ3Zkpk+xei1QI8Jocl9p34M4jk5L3KkTeTXpLQlIZSel3biGoel4986LfZbUYkXgp9hpwnoYtpazlEZIBjeH2yIYuJ6qhDPNBLgSM2YP8a4b5kE83EzRRfrJLJY8lZem6AmHVnWGCGzXZBrSTCtVSAHaskV1PPoqfnPPtZYSH5PMSmFde/ximnLfrSwwGSGamHjW5wE0opIz0afH7zUe8mL4BJMRh6epVjRBh0vh3KHrHopn6ABGAJp1BbGbvz8uMSNoZbEvfFIUrmmyUOO1HhHqj/wNdWsmU/KfDx2DDwaTscVyBygpmxUpDCBXMx4tNsnxKrdDGrRX8AX58tqlkXbnRJ6g8DPERqMBCjBkylDI5NwDaAK57+PqdZVjhnUV6/dAJu6HlUeURQx9yTjNjbwOBK2h8mgJGljkjEz2qj2KIZg3i5VWGVMO8oLsdgVPFw8LLHxBpcP0Q0r1QGZyoRjZsoLWsko="
+
+addons:
+  coverity_scan:
+    project:
+      name: "guusdk/libidn-java"
+      description: "Build submitted via Travis CI"
+    notification_email: guus.der.kinderen@gmail.com
+    build_command_prepend: "mvn clean"
+    build_command:   "mvn -DskipTests=true compile"
+    branch_pattern: master
