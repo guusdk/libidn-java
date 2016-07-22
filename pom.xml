@@ -6,7 +6,7 @@
   <groupId>org.gnu.inet</groupId>
   <artifactId>libidn</artifactId>
   <name>GNU IDN Library</name>
-  <version>@VERSION@</version>
+  <version>1.33-SNAPSHOT</version>
 
   <description>
     GNU Libidn is a fully documented implementation of the Stringprep,
