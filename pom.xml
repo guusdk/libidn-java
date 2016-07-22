@@ -57,4 +57,35 @@
     <url>http://www.gnu.org/</url>
   </organization>
 
+  <developers>
+    <developer>
+      <id>Simon Josefsson</id>
+      <name>Simon Josefsson</name>
+      <email>simon@josefsson.org</email>
+      <organization>Simon Josefsson Datakonsult AB</organization>
+      <organizationUrl>http://josefsson.org</organizationUrl>
+      <timezone>+1</timezone>
+      <roles>
+        <role>Original author</role>
+      </roles>
+    </developer>
+    <developer>
+      <name>Oliver Hitz</name>
+      <roles>
+        <role>Author (Java port)</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>stela</id>
+      <name>Stefan Larsson</name>
+    </developer>
+    <developer>
+      <id>guusdk</id>
+      <name>Guus der Kinderen</name>
+      <email>guus.der.kinderen@gmail.com</email>
+      <timezone>+1</timezone>
+      <organization>GoodBytes</organization>
+      <organizationUrl>http://goodbytes.nl</organizationUrl>
+    </developer>
+  </developers>
 </project>
