@@ -116,7 +116,7 @@ public class TestNFKC
   public void testNFKC()
     throws Exception
   {
-      final URL url = new URL( "http://www.unicode.org/Public/UNIDATA/NormalizationTest.txt" );
+      final URL url = this.getClass().getResource( "/NormalizationTest.txt" );
       BufferedReader r = new BufferedReader(new InputStreamReader( url.openStream() ));
 
       String line;

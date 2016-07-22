@@ -62,7 +62,7 @@ public class TestIDNA
 	@Test
 	public void testDraftJosefssonIDNTestVectors() throws Exception
 	{
-	  final URL url = new URL( "http://www.unicode.org/Public/UNIDATA/NormalizationTest.txt" );
+	  final URL url = this.getClass().getResource( "/Nameprep and IDNA Test Vectors.html" );
 	  BufferedReader r = new BufferedReader(new InputStreamReader( url.openStream() ));
       int state = STATE_SCAN;
 

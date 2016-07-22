@@ -145,7 +145,7 @@ public class GenerateNFKC
     // Read CompositionExclusions
     TreeSet exclusions = new TreeSet();
     {
-      final URL url = new URL( "http://www.unicode.org/Public/UNIDATA/CompositionExclusions.txt" );
+      final URL url = GenerateNFKC.class.getResource( "/CompositionExclusions.txt" );
       BufferedReader r = new BufferedReader(new InputStreamReader( url.openStream() ));
       String line;
       while (null != (line = r.readLine())) {
@@ -168,7 +168,7 @@ public class GenerateNFKC
     TreeMap combiningClasses = new TreeMap();
 
     {
-      final URL url = new URL( "http://www.unicode.org/Public/UNIDATA/UnicodeData.txt" );
+      final URL url = GenerateNFKC.class.getResource( "/UnicodeData.txt" );
       BufferedReader r = new BufferedReader(new InputStreamReader( url.openStream() ));
       String line;
       while (null != (line = r.readLine())) {
